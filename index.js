@@ -9,7 +9,7 @@ const prisma = new PrismaClient();
 app.use(express.json());
 app.use(cors());
 
-app.get("/", (request, response) => {
+app.get("/teste", (request, response) => {
   response.send("Hello World!");
 });
 
