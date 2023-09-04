@@ -2,14 +2,27 @@
   "version": 2,
   "builds": [
     {
-      "src": "index.js",
+      "src": "indes.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
-      "src": "/(.*)",
-      "dest":"/index.js"
+      "src": "index.js",
+      "dest": "/index.js"
     }
-  ]
+  ],
+  "functions": {
+    "api/*": {
+      "prerender": false,
+      "build": {
+        "commands": [
+          "npm ci",
+          "npm run dev", 
+          "npx prisma generate" 
+        ],
+        "use": "@vercel/node"
+      }
+    }
+  }
 }
